@@ -52,7 +52,7 @@ def load_data_batch(files, timing):
     data_dict = {}
     for index, file in tqdm(enumerate(files), desc="Loading files", total=len(files)):
         try:
-            if file.endswith(".dcm") or file.endswith(".DCM") or file.endswith(""):
+            if file.endswith(".dcm") or file.endswith(".DCM"):
                 data_dict[index] = [dicom.dcmread(file).pixel_array, file]  # DICOM
             elif file.endswith(tuple(img_formats)):
                 with Image.open(file) as img:
